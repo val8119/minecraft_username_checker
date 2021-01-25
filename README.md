@@ -1,6 +1,6 @@
 # Minecraft Username Checker
 
-Check availability of minecraft usernames and saves them to a text file. Requires NordVPN to bypass API throttling. Run `run_me_first.py` first to configure the nordvpn_switcher library.
+Check availability of minecraft usernames and saves them to a text file. Requires NordVPN to bypass API throttling. Run `run_me_first.py` first to configure the nordvpn_switcher library (this only needs to be done once).
 
 Example usage:
 
