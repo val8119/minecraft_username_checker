@@ -1,2 +1,3 @@
-# minecraft_username_checker
- 
+# Minecraft Username Checker
+
+Check availability of minecraft usernames via the Mojang API.
