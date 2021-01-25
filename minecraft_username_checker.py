@@ -32,8 +32,6 @@ print("")
 file = open(f"{list_path}.txt", encoding="UTF-8")
 
 for line in file:
-    print("")
-    fprint("neutral", "Too many requests, switching VPN server\n")
     usernames.append(line.strip())
 
 file.close()
@@ -47,6 +45,8 @@ for username in usernames:
         response = requests.get(f"https://api.mojang.com/users/profiles/minecraft/{username}")
 
         if response.status_code == 429:
+            print("")
+            fprint("neutral", "Too many requests, switching VPN server\n")
             nordvpn_switcher.rotate_VPN()
 
         if response.content.decode('UTF-8') == "":
@@ -61,4 +61,4 @@ for username in usernames:
 
 print("")
 
-fprint("neutral", f"Checked {colors.yellow}{total}{colors.white} usernames, {colors.green}{count}{colors.white} of which are not taken")
+fprint("neutral", f"Checked {colors.yellow}{total}{colors.white} usernames, {colors.green}{count}{colors.white} of which are not taken\n")
