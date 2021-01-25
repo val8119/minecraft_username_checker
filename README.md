@@ -1,6 +1,6 @@
 # Minecraft Username Checker
 
-Check availability of minecraft usernames via the Mojang API. Requires NordVPN to bypass API throttling.
+Check availability of minecraft usernames and saves them to a text file. Requires NordVPN to bypass API throttling.
 
 Example usage:
 
