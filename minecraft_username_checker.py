@@ -32,6 +32,8 @@ print("")
 file = open(f"{list_path}.txt", encoding="UTF-8")
 
 for line in file:
+    print("")
+    fprint("neutral", "Too many requests, switching VPN server\n")
     usernames.append(line.strip())
 
 file.close()
@@ -50,7 +52,7 @@ for username in usernames:
         if response.content.decode('UTF-8') == "":
             fprint("valid", f"[{current}/{total}] Status: Not taken | Username: {username}")
 
-            print(f"CHECKED: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')} USERNAME: {username}", file=open("usernames.txt", "a"))
+            print(f"CHECKED: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')} USERNAME: {username}", file=open("checked_usernames.txt", "a"))
 
             count += 1
 
