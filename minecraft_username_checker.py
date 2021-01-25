@@ -20,26 +20,43 @@ class colors:
     red = "\033[31m"
 
 
+usernames = []
 count = 0
 current = 0
 total = 0
 
-list_path = input("> ")
+list_path = input("\nEnter the name of your username list (without .txt): ")
 
-for username in list_path:
-    count += 1
+print("")
+
+file = open(f"{list_path}.txt", encoding="UTF-8")
+
+for line in file:
+    usernames.append(line.strip())
+
+file.close()
+
+total = len(usernames)
+
+for username in usernames:
+    current += 1
+
     if len(username) > 2:
         response = requests.get(f"https://api.mojang.com/users/profiles/minecraft/{username}")
 
         if response.status_code == 429:
             nordvpn_switcher.rotate_VPN()
 
-        if response.content.decode('utf-8') == "":
-            fprint("valid", f"({count}) Username not taken: {username} | Response: {response.status_code}")
-            print(f"CHECKED: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')} USERNAME: {username}", file=open("valid_usernames.txt", "a"))
+        if response.content.decode('UTF-8') == "":
+            fprint("valid", f"[{current}/{total}] Status: Not taken | Username: {username}")
+
+            print(f"CHECKED: {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')} USERNAME: {username}", file=open("usernames.txt", "a"))
+
             count += 1
 
         else:
-            fprint("invalid", f"({count}) Username unavailable: {username} | Response: {response.status_code}")
+            fprint("invalid", f"[{current}/{total}] Status: Taken     | Username: {username}")
 
-fprint("neutral", f"Found {colors.green}{count}{colors.white} available usernames")
+print("")
+
+fprint("neutral", f"Checked {colors.yellow}{total}{colors.white} usernames, {colors.green}{count}{colors.white} of which are not taken")
