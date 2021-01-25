@@ -2,6 +2,10 @@
 
 Check availability of minecraft usernames via the Mojang API.
 
+Example usage:
+
+![Example Image](example.png)
+
 usernames.txt
 ```
 val
@@ -13,11 +17,6 @@ steve
 dick
 mineman49
 ```
-
-Example usage:
-
-![Example Image](example.png)
-
 checked_usernames.txt
 ```
 CHECKED: 25/01/2021 23:03:10 USERNAME: 4567b47b474
