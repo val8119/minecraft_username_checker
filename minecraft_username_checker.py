@@ -44,7 +44,7 @@ for username in usernames:
     if len(username) > 2:
         response = requests.get(f"https://api.mojang.com/users/profiles/minecraft/{username}")
 
-        if response.status_code == 429:
+        if response.status_code == 429 or response.status_code == 403:
             print("")
             fprint("neutral", "Too many requests, switching VPN server\n")
             nordvpn_switcher.rotate_VPN()
